@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { AppDataSource } from "./data-source";
 import { clienteRoutes } from "./routes/routes";
+import { produtoRoutes } from "./routes/route.produto";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/clientes", clienteRoutes);
+app.use("/api/produtos", produtoRoutes)
 
 AppDataSource.initialize()
   .then(() => {
